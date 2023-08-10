@@ -105,7 +105,7 @@ setInterval(() => {
         ) {
             // Collision detected!
             console.log("game over my fren! ");
-            location.href ="./gameover.html";
+            location.href="./gameover.html";
 
         }
     
