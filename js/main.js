@@ -41,7 +41,7 @@ class Player {
         this.positionX++;
         this.domElement.style.left = this.positionX + "vw";
 
-        console.log(`moving right... ${this.positionX}`);
+        
     }
 }
 
@@ -77,7 +77,7 @@ class Obstacle {
         this.positionY -= 2;
         this.domElement.style.bottom = this.positionY + "vh";
 
-        console.log("moving down")
+        
     }
 }
 
@@ -97,6 +97,19 @@ setInterval(() => {
 setInterval(() => {
     obstacleArr.forEach( (obstacleInstance) => {
         obstacleInstance.moveDown();
+        if (
+            player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
+            player.positionX + player.width> obstacleInstance.positionX &&
+            player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
+            player.positionY + player.height > obstacleInstance.positionY
+        ) {
+            // Collision detected!
+            console.log("game over my fren! ");
+        }
+    
+    
+    
+    
     });
 
 }, 200);
