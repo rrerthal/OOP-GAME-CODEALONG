@@ -49,7 +49,7 @@ class Obstacle {
     constructor() {
         this.width = 20;
         this.height = 5;
-        this.positionX = 50;
+        this.positionX = Math.floor(Math.random() * (100 - this.width + 1));
         this.positionY = 100;
         this.domElement = null;
 
@@ -96,7 +96,16 @@ setInterval(() => {
 // move all obstacles
 setInterval(() => {
     obstacleArr.forEach( (obstacleInstance) => {
+        //move
         obstacleInstance.moveDown();
+        
+        //remove if outside
+        if( obstacleInstance.positionY < 0 - obstacleInstance.height){
+               obstacleInstance.domElement.remove();
+               obstaclesArr.shift(); 
+        }
+
+        //DETECT COLLISION
         if (
             player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
             player.positionX + player.width> obstacleInstance.positionX &&
