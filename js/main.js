@@ -1,9 +1,9 @@
 class Player {
     constructor() {
-        this.positionX = 50;
-        this.positionY = 0;
         this.width = 10;
         this.height = 5;
+        this.positionX = 50 - (this.width/2);
+        this.positionY = 0;
         this.domElement = null;
 
         this.createDomElement();
@@ -47,10 +47,10 @@ class Player {
 
 class Obstacle {
     constructor() {
-        this.positionX = 50;
-        this.positionY = 100;
         this.width = 20;
         this.height = 5;
+        this.positionX = 50;
+        this.positionY = 100;
         this.domElement = null;
 
         this.createDomElement();
@@ -105,7 +105,7 @@ setInterval(() => {
         ) {
             // Collision detected!
             console.log("game over my fren! ");
-            location.href="./gameover.html";
+            //location.href = "./gameover.html";
 
         }
     
